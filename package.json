@@ -1,0 +1,36 @@
+{
+  "name": "@orango/beam-client",
+  "version": "0.1.0",
+  "description": "Connects a client with the receiver to send and receive messages, perform actions and receive events.",
+  "type": "module",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "main": "./dist/beam-client.umd.cjs",
+  "module": "./dist/beam-client.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/beam-client.js",
+      "require": "./dist/beam-client.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "build:d": "tsc src/*.ts --declaration --emitDeclarationOnly --declarationDir dist/",
+    "docs": "typedoc --options typedoc.cjs src/main.ts && npm run copy:favicons",
+    "copy:favicons": "cp -r ./favicon ./docs/favicon",
+    "npm:publish": "npm publish --access public",
+    "npm:dry-run": "npm publish --dry-run"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.7.2"
+  },
+  "dependencies": {
+    "typedoc": "^0.23.28"
+  }
+}
