@@ -5,7 +5,7 @@ module.exports = {
   hideGenerator: true,
   excludePrivate: true,
   sidebarLinks: {
-    Github: 'git@github.com:orangosoft/beam-client.git',
+    Github: 'https://github.com/orangosoft/beam-client',
   },
   disableSources: true,
   plugin: './typedoc-plugins/defaults.cjs',
