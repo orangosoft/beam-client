@@ -28,7 +28,7 @@ export class BeamClient implements IBeamClient {
   }
 
   /** @private */
-  createTimeoutPromise(id: string, path: string, timeout: number = 10000) {
+  createTimeoutPromise<T>(id: string, path: string, timeout: number = 10000): Promise<T> {
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => {
         reject(new Error('timeout'))
@@ -61,10 +61,10 @@ export class BeamClient implements IBeamClient {
     }, 1)
   }
 
-  async sendRequest(path = '', ...args: any[]) {
+  async sendRequest<T = any>(path = '', ...args: any[]) {
     const id = uuid()
     this.batch({ id, path, args })
-    return this.createTimeoutPromise(id, path)
+    return this.createTimeoutPromise<T>(id, path)
   }
 
   subscribe(event: string, target: string | { [key: string]: string }, callback: any) {
