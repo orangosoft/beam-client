@@ -1,6 +1,6 @@
 {
   "name": "@orango/beam-client",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Connects a client with the receiver to send and receive messages, perform actions and receive events.",
   "type": "module",
   "files": [

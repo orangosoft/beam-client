@@ -10,6 +10,7 @@ export const ELEMENT = {
   ADD_STYLES: ELEMENT_NS + '.addStyles',
   RESTORE_STYLES: ELEMENT_NS + '.restoreStyles',
   REMOVE_CLASSES: ELEMENT_NS + '.removeClasses',
+  QUERY: ELEMENT_NS + '.query',
 
   // Events
   ON_TOGGLE: ELEMENT_NS + '.onToggle',
