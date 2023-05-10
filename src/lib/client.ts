@@ -31,7 +31,9 @@ export class BeamClient implements IBeamClient {
   createTimeoutPromise<T>(id: string, path: string, timeout: number = 10000): Promise<T> {
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => {
-        reject(new Error('timeout'))
+        const promise = this.promises.get(id)
+        this.promises.delete(id)
+        reject(new Error('timeout on ' + promise.path))
       }, timeout)
       this.promises.set(id, { path, timer, resolve, reject })
     })
